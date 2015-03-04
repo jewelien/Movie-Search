@@ -7,6 +7,7 @@
 //
 
 #import "MovieController.h"
+#import "NetworkController.h"
 
 @implementation MovieController
 
@@ -20,5 +21,29 @@
     return sharedInstance;
     
 }
+
+- (void)moviesWithTitle: (NSString *)title completion:(void (^)(BOOL success))completion {
+    
+    [[NetworkController api] GET:@"search/movie" parameters:[NetworkController parametersWithAPIKey:@{@"query": title}] success:^(NSURLSessionDataTask *task, id responseObject) {
+        self.resultMovies = responseObject[@"results"];
+        completion(YES);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(NO);
+    }];
+    
+}
+
+- (void)movieWithID: (int)ID completion:(void (^)(BOOL success))completion {
+    
+    [[NetworkController api] GET:@"/movie/" parameters:[NetworkController parametersWithAPIKey:@{@"overview": id}] success:^(NSURLSessionDataTask *task, id responseObject) {
+        self.resultMovies = responseObject[@"results"];
+        completion(YES);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(NO);
+    }];
+    
+}
+
+
 
 @end

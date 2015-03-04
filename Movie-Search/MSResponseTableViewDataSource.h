@@ -10,4 +10,7 @@
 
 @interface MSResponseTableViewDataSource : NSObject <UITableViewDataSource>
 
+@property (nonatomic, assign) NSInteger cellSelected;
+
+
 @end

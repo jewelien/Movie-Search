@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMovieDetailViewController">
             <connections>
+                <outlet property="dateLabel" destination="alC-Qx-Wd6" id="f4v-QG-iCZ"/>
+                <outlet property="descriptionLabel" destination="Aer-ZG-HE2" id="Z5u-g0-ZpI"/>
+                <outlet property="posterImage" destination="JdD-h3-5Sw" id="1hU-BD-nff"/>
+                <outlet property="titleLabel" destination="n2y-eE-zCk" id="3Sc-4z-2z5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,9 +20,74 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-h3-5Sw">
+                    <rect key="frame" x="91" y="115" width="138" height="208"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="208" id="Vxs-8x-Jhx"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-eE-zCk">
+                    <rect key="frame" x="8" y="48" width="304" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="TUg-Oj-eUt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-lF-M8Y">
+                    <rect key="frame" x="196" y="341" width="116" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="116" id="gwa-0Z-kIF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aer-ZG-HE2">
+                    <rect key="frame" x="8" y="381" width="304" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="r6T-BE-eMH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alC-Qx-Wd6">
+                    <rect key="frame" x="8" y="341" width="140" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="6eH-Ya-8dR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <constraints>
+                <constraint firstItem="n2y-eE-zCk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="8Kr-2o-gPV"/>
+                <constraint firstItem="Aer-ZG-HE2" firstAttribute="top" secondItem="alC-Qx-Wd6" secondAttribute="bottom" constant="19" id="Nfq-tf-ZSL"/>
+                <constraint firstItem="JdD-h3-5Sw" firstAttribute="top" secondItem="n2y-eE-zCk" secondAttribute="bottom" constant="8" symbolic="YES" id="QHj-tg-Ktl"/>
+                <constraint firstItem="Aer-ZG-HE2" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="RhU-wC-QzR"/>
+                <constraint firstItem="alC-Qx-Wd6" firstAttribute="firstBaseline" secondItem="bp9-lF-M8Y" secondAttribute="firstBaseline" id="Vvf-Tm-CAP"/>
+                <constraint firstItem="n2y-eE-zCk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="bWJ-QM-hQ0"/>
+                <constraint firstItem="alC-Qx-Wd6" firstAttribute="leading" secondItem="n2y-eE-zCk" secondAttribute="leading" id="ea6-Q3-A1E"/>
+                <constraint firstItem="bp9-lF-M8Y" firstAttribute="leading" secondItem="alC-Qx-Wd6" secondAttribute="trailing" constant="48" id="gEn-PK-Vrf"/>
+                <constraint firstItem="JdD-h3-5Sw" firstAttribute="centerX" secondItem="n2y-eE-zCk" secondAttribute="centerX" id="h8c-z9-mVf"/>
+                <constraint firstItem="alC-Qx-Wd6" firstAttribute="baseline" secondItem="bp9-lF-M8Y" secondAttribute="baseline" id="kkN-wd-zLc"/>
+                <constraint firstItem="Aer-ZG-HE2" firstAttribute="trailing" secondItem="bp9-lF-M8Y" secondAttribute="trailing" id="klK-bv-Y93"/>
+                <constraint firstItem="n2y-eE-zCk" firstAttribute="trailing" secondItem="bp9-lF-M8Y" secondAttribute="trailing" id="oPm-NO-efv"/>
+                <constraint firstItem="alC-Qx-Wd6" firstAttribute="top" secondItem="JdD-h3-5Sw" secondAttribute="bottom" constant="18" id="sOT-jI-jHp"/>
+                <constraint firstItem="JdD-h3-5Sw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="91" id="vso-NH-jqW"/>
+                <constraint firstItem="Aer-ZG-HE2" firstAttribute="leading" secondItem="alC-Qx-Wd6" secondAttribute="leading" id="yDM-cP-iGu"/>
+            </constraints>
+            <point key="canvasLocation" x="296" y="353"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -9,8 +9,9 @@
 #import "MSViewController.h"
 #import "MSResponseTableViewDataSource.h"
 #import "MSMovieDetailViewController.h"
+#import "MovieController.h"
 
-@interface MSViewController () <UITableViewDelegate>
+@interface MSViewController () <UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *searchField;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
@@ -33,13 +34,22 @@
 }
 
 - (IBAction)search:(id)sender {
-
+    [[MovieController sharedInstance]moviesWithTitle:self.searchField.text completion:^(BOOL success) {
+        if (success) {
+            [self.tableView reloadData];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Search not found." message:@"Search again." delegate:nil cancelButtonTitle:@"Fine!" otherButtonTitles:nil] show];
+        }
+    }];
+    
+    [self.searchField resignFirstResponder];
 }
 
+
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     MSMovieDetailViewController *detailViewController = [MSMovieDetailViewController new];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
